@@ -1,27 +1,33 @@
 package org.prog.session3;
 
+import java.util.Random;
+
 public class Homework3 {
     public static void main (String[] args) {
-        int [] mysort = new int[]{3, 2, 6, 1, 4, 5, 0, 8, 7, 9};
+        Random random = new Random();
+        int [] mysort = new int[100];
+        for (int i = 0; i < mysort.length; i++){
+            mysort[i] = random.nextInt(1000);
+            System.out.println(mysort[i]);
+        }
+        System.out.println("=========================");
         boolean condition = true;
 
-        while (condition) {
+        do {
             condition = false;
             for (int i = 0; i < mysort.length - 1; i++) {
                 if (mysort[i] > mysort[i + 1]) {
-                 int temp = mysort[i];
-                 mysort[i] = mysort[i + 1];
-                 mysort[i + 1] = temp;
-
-                 condition = true;
+                    int current = mysort[i];
+                    mysort[i] = mysort[i + 1];
+                    mysort[i + 1] = current;
+                    condition = true;
                 }
 
-
-
             }
-        }
-        for (int num : mysort){
-            System.out.print(num + "");
+        } while (condition);
+
+        for (int i = 0; i < mysort.length; i++){
+            System.out.print(mysort[i]);
         }
     }
 }
