@@ -9,15 +9,25 @@ public class Car {
     public String color;
     public int mileage;
     public String plateNumber;
+    public String owner;
+
+
 
     public void goTo(String destination, int speed) {
         System.out.println("before trip miles: " + mileage);
-        if ("black".equals(color)) {
-            System.out.println("Black cars are cool");
+        if ("pink".equals(color)) {
+            System.out.println("Pink cars are cute");
         }
         mileage += speed * 10;
         System.out.println(color + " car is going to " + destination +
                 " at " + speed + " km/h");
         System.out.println("After trip miles: " + mileage);
+        System.out.println(" Cute " + color + " car with number " + plateNumber + " owner by " + owner +
+                " is going to " + destination + " at " + speed + " km/h ");
+        System.out.println(" Car owner by " + owner + " is going to " + destination + " at " + speed + " km/h ");
+
     }
 }
+
+
+
