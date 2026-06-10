@@ -8,6 +8,7 @@ public class Truck {
 
     public String model;
     public String name;
+    public String platenumber;
 
     public void setTruckInfo(String m, String n) {
         model = m;
