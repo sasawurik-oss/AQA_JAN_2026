@@ -9,7 +9,7 @@ public class HomeWork7 {
         Apple apple1 = new Apple();
 
 
-        apple1.color = "Black";
+        apple1.color = "Red";
         apple1.model = "11 Pro";
 
         apple.color = "Red";
