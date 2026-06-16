@@ -14,11 +14,23 @@ public class HomeWork7 {
         apple1.model = "11 Pro";
 
         apple.color = "Red";
-        apple.model = "11 Pro";
+        apple.model = null;
+
+        try {
+        if (apple.model == null) {
+            throw new MyPhoneException(" Apple model is null");
+        }
+            apple.hashCode();
+        } catch (MyPhoneException e) {
+            System.out.println("oops!");
+        }
 
         android.color = "Black";
        android.model = "12";
 
+
+
+        System.out.println("===============================");
 
         System.out.println(android.hashCode());
         System.out.println( android.color +  " Android " + android.model  );
