@@ -3,11 +3,10 @@ package org.prog.Work7;
 public class HomeWork7 {
     private static String Apple;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Android android = new Android();
         Apple apple = new Apple();
         Apple apple1 = new Apple();
-
 
 
         apple1.color = "Red";
@@ -17,35 +16,40 @@ public class HomeWork7 {
         apple.model = null;
 
         try {
-        if (apple.model == null) {
-            throw new MyPhoneException(" Apple model is null");
-        }
-            apple.hashCode();
+            if (apple.model == null) {
+                throw new MyPhoneException(" Apple model is null");
+            }
+            apple.model.equals(apple1.model);
         } catch (MyPhoneException e) {
             System.err.println("oops!");
+            return;
         }
 
-        android.color = "Black";
-       android.model = "12";
+
+
+            android.color = "Black";
+            android.model = "12";
+
+
+            System.out.println("===============================");
+
+            System.out.println(android.hashCode());
+            System.out.println(android.color + " Android " + android.model);
+            work(android);
+            System.out.println("===============================");
+            System.out.println("===============================");
+            System.out.println(apple.color.equals(apple1.color));
+            System.out.println(apple.hashCode());
+            System.out.println(apple.color + " Apple " + apple.model);
+            work(apple);
+            System.out.println("===============================");
+            System.out.println(apple1.model.equals(apple.model));
+            System.out.println(apple1.hashCode());
+            System.out.println(apple1.color + " Apple " + apple1.model);
+            work(apple);
 
 
 
-        System.out.println("===============================");
-
-        System.out.println(android.hashCode());
-        System.out.println( android.color +  " Android " + android.model  );
-        work(android);
-        System.out.println("===============================");
-        System.out.println("===============================");
-        System.out.println(apple.color.equals(apple1.color));
-        System.out.println(apple.hashCode());
-        System.out.println( apple.color +  " Apple " + apple.model  );
-        work(apple);
-        System.out.println("===============================");
-        System.out.println(apple1.model.equals(apple.model));
-        System.out.println(apple1.hashCode());
-        System.out.println( apple1.color +  " Apple " + apple1.model  );
-        work(apple);
 
 
     }
@@ -54,4 +58,6 @@ public class HomeWork7 {
         phone.call();
 
     }
+
+
 }
