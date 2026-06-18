@@ -4,7 +4,7 @@ public class HomeWork7 {
     private static String Apple;
 
     public static void main(String[] args) {
-        Android android = new Android();
+       Android android = new Android( );
         Apple apple = new Apple();
         Apple apple1 = new Apple();
 
