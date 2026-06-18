@@ -22,7 +22,7 @@ public class HomeWork7 {
         }
             apple.hashCode();
         } catch (MyPhoneException e) {
-            System.out.println("oops!");
+            System.err.println("oops!");
         }
 
         android.color = "Black";
