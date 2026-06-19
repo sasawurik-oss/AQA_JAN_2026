@@ -5,6 +5,10 @@ public class Android extends Model implements IPhone{
         this.model = model;
         this.color = color;
     }
+    public Android(String color) {
+        this.model = model;
+        this.color = color;
+    }
 
     public Android() {
         this.model = model;

@@ -18,7 +18,8 @@ public class HomeWorkkk {
         androids.add(new Android("Samsung A266B", "mint"));
         androids.add(new Android("Redmi 15 8","purple"));
 
-        System.out.println(androids);
+        
+
 
         List<Apple> apples = new ArrayList<>();
         apples.add(new Apple("IPhone 17 Pro Max", "white"));
@@ -31,6 +32,9 @@ public class HomeWorkkk {
         apples.add(new Apple("IPhone 15 Pro", "brow"));
         apples.add(new Apple("IPhone 9", "white"));
         apples.add(new Apple("IPhone 12 Pro", "red"));
+
+
+
 
 
 
