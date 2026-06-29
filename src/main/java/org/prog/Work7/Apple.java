@@ -1,6 +1,7 @@
 package org.prog.Work7;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Apple extends Model implements IPhone {
     public Apple(String model, String color) {
@@ -17,6 +18,12 @@ public class Apple extends Model implements IPhone {
     public String getColor(){
         return color;
     }
+    public int modelNumber() {
+         Random random = new Random();
+        int n = random.nextInt(5);
+        return n;
+    }
+
 
     @Override
     public void call(){System.out.println("Apple: Calling my broo!");}
