@@ -34,17 +34,15 @@ public class HoneWork15 {
         element.sendKeys("Apple iPhone 17 Pro Max");
         element.sendKeys(Keys.ENTER);
 
-        List<WebElement> prices = driver.findElements(By.cssSelector("v-pb_cur discount"));
+        List<WebElement> prices = driver.findElements(By.className("sum"));
 
-        element.sendKeys(Keys.ENTER);
         Assert.assertTrue(prices.size() >= 3);
 
-        // Проверяем, что первые три цены не пустые
+        // проверка: первые три цены не пустые
         Assert.assertNotNull(prices.get(0).getText());
         Assert.assertNotNull(prices.get(1).getText());
         Assert.assertNotNull(prices.get(2).getText());
 
-        // Выводим цены в консоль
         System.out.println("1: " + prices.get(0).getText());
         System.out.println("2: " + prices.get(1).getText());
         System.out.println("3: " + prices.get(2).getText());
