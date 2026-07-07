@@ -16,10 +16,14 @@ import java.util.List;
 
 public class HoneWork15 {
     private WebDriver driver;
+    private HomeWork2x15 alloPage;
+
 
     @BeforeSuite
     public void setUp() {
         driver = new ChromeDriver();
+        alloPage = new HomeWork2x15(driver);
+
     }
 
     @AfterSuite
@@ -29,7 +33,7 @@ public class HoneWork15 {
 
     @Test
     public void myPhoneTest() {
-        driver.get("https://allo.ua");
+        alloPage.loadPage();
         WebElement element = driver.findElement(By.name("search"));
         element.sendKeys("Apple iPhone 17 Pro Max");
         element.sendKeys(Keys.ENTER);
@@ -39,13 +43,9 @@ public class HoneWork15 {
         Assert.assertTrue(prices.size() >= 3);
 
         // проверка: первые три цены не пустые
-        Assert.assertNotNull(prices.get(0).getText());
-        Assert.assertNotNull(prices.get(1).getText());
-        Assert.assertNotNull(prices.get(2).getText());
+        alloPage.prices(prices);
 
-        System.out.println("1: " + prices.get(0).getText());
-        System.out.println("2: " + prices.get(1).getText());
-        System.out.println("3: " + prices.get(2).getText());
+
 
 
         System.out.println("It is ok!");
