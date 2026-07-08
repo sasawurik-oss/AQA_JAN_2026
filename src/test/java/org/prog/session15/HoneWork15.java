@@ -34,18 +34,15 @@ public class HoneWork15 {
     @Test
     public void myPhoneTest() {
         alloPage.loadPage();
-        WebElement element = driver.findElement(By.name("search"));
-        element.sendKeys("Apple iPhone 17 Pro Max");
-        element.sendKeys(Keys.ENTER);
+        alloPage.searchPhone("Apple iPhone 17 Pro Max");
 
-        List<WebElement> prices = driver.findElements(By.className("sum"));
+        List<WebElement> prices = alloPage.getPrices();
 
         Assert.assertTrue(prices.size() >= 3);
 
-        // проверка: первые три цены не пустые
-        alloPage.prices(prices);
-
-
+         for (int i = 0; i < 3; i++) {
+            String price = prices.get(i).getText(); Assert.assertFalse(price.isBlank());
+            System.out.println((i + 1) + ": " + price); }
 
 
         System.out.println("It is ok!");

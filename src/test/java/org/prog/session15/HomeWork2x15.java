@@ -1,5 +1,7 @@
 package org.prog.session15;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -21,13 +23,15 @@ public class HomeWork2x15 {
         driver.get(BASE_URL);
     }
 
-    public void prices(List<WebElement> prices) {
-        for (int i = 0; i < 3; i++) {
-            String price = prices.get(i).getText();
+    public void searchPhone(String phoneName) {
+        WebElement search = driver.findElement(By.name("search"));
+        search.sendKeys(phoneName);
+        search.sendKeys(Keys.ENTER);
 
-            Assert.assertFalse(price.isBlank());
-            System.out.println((i + 1) + ": " + price);
-        }
+    }
+
+    public List<WebElement> getPrices() {
+        return driver.findElements(By.className("sum"));
     }
 
 
