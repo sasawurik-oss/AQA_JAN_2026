@@ -33,6 +33,9 @@ public class HomeWork2x15 {
     public List<WebElement> getPrices() {
         return driver.findElements(By.className("sum"));
     }
+    public List<WebElement> getModel(){
+        return driver.findElements(By.className("product-card__title"));
+    }
 
 
 }

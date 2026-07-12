@@ -11,6 +11,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.time.Instant;
 import java.util.List;
 
@@ -32,17 +33,51 @@ public class HoneWork15 {
     }
 
     @Test
-    public void myPhoneTest() {
+    public void myPhoneTest() throws SQLException {
+        DataBaseForPhone db = new DataBaseForPhone();
+
+
         alloPage.loadPage();
         alloPage.searchPhone("Apple iPhone 17 Pro Max");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         List<WebElement> prices = alloPage.getPrices();
+        List<WebElement> models = alloPage.getModel();
 
-        Assert.assertTrue(prices.size() >= 3);
 
-         for (int i = 0; i < 3; i++) {
-            String price = prices.get(i).getText(); Assert.assertFalse(price.isBlank());
-            System.out.println((i + 1) + ": " + price); }
+        Assert.assertTrue(models.size() >= 3);
+
+
+        for (int i = 0; i < 3; i++) {
+
+            String model = models.get(i).getText();
+            String priceText = prices.get(i).getText();
+
+            Assert.assertFalse(priceText.isBlank());
+            Assert.assertFalse(model.isBlank());
+
+            int sitePrice = Integer.parseInt(priceText.replaceAll("[^0-9]", ""));
+
+            System.out.println((i + 1) + ": " + model + "  " + sitePrice);
+
+            Integer dbPrice = db.priceForDb(model);
+
+            if (dbPrice == null) {
+
+                db.addPhone(model, sitePrice);
+
+
+            } else {
+
+                Assert.assertEquals(sitePrice, dbPrice.intValue());
+
+            }
+        }
+
 
 
         System.out.println("It is ok!");
